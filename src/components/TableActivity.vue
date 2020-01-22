@@ -12,7 +12,7 @@
             <th class="text-left">วันที่</th>
             <th class="text-left">จำนวนคน</th>
             <th class="text-left">รายละเอียดกิจกรรม</th>
-            <th class="text-left">ลบกิจกรรม</th>
+            <th class="text-left">บันทึกกิจกรรม</th>
           </tr>
         </thead>
         <tbody>

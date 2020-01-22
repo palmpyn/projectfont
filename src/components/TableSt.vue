@@ -6,6 +6,7 @@
       :height="height"
     >
       <template v-slot:default >
+        <table border="1" cellpadding="3" ref="printTable">
         <thead >
           <tr>
             <th class="text-left">Name</th>
@@ -17,11 +18,12 @@
         <tbody>
           <tr v-for="item in desserts" :key="item.name">
             <td class="text-left">{{ item.name }}</td>
-            <td class="text-left">{{ item.calories }}</td>
-            <td class="text-left">-</td>
-            <td class="text-left">-</td>
+            <td class="text-left">{{ item.st_id }}</td>
+            <td class="text-left">{{ item.branch }}</td>
+            <td class="text-left">{{ item.year }}</td>
           </tr>
         </tbody>
+        </table>
       </template>
     </v-simple-table>
   </div>
@@ -30,49 +32,32 @@
   export default {
     data: () => ({
       dense: false,
-      fixedHeader: false,
+      fixedHeader: true,
       height: 300,
       desserts: [
         {
           name: 'Frozen Yogurt',
-          calories: 159,
+          st_id: 159,
+          branch: 'วิทยาการคอม',
+          year: 2
         },
         {
           name: 'Ice cream sandwich',
-          calories: 237,
+          st_id: 237,
+          branch: 'c;f]hv,',
+          year: 1
         },
         {
           name: 'Eclair',
-          calories: 262,
+          st_id: 262,
+          branch: ';yl',
+          year: 4
         },
         {
           name: 'Cupcake',
-          calories: 305,
+          st_id: 305,
         },
-        {
-          name: 'Gingerbread',
-          calories: 356,
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-        },
+        
       ],
     }),
   }

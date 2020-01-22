@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/Changepassword',
     name: 'Changepassword',
-    component: () => import('../views/Changepassword')
+    component: () => import('../views/student/Changepassword')
   },
   {
     path: '/Historyregister',
@@ -47,6 +47,16 @@ const routes = [
     path: '/login/admin',
     name: 'loginadmin',
     component: ()=>import('../views/admin/loginadmin')
+  },
+  {
+    path: '/report',
+    name: 'Report',
+    component: ()=>import('../views/admin/Report')
+  },
+  {
+    path: '/viewactivity/admin',
+    name: 'viewadmin',
+    component: ()=>import('../views/admin/ViewAdmin')
   },
 ]
 

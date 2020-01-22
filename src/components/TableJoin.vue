@@ -11,7 +11,6 @@
             <th class="text-left">Name</th>
             <th class="text-left">วันที่</th>
             <th class="text-left">ดูรายละเอียด</th>
-            <th class="text-left">ยกเลิกลงทะเบียน</th>
           </tr>
         </thead>
         <tbody>
