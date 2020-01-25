@@ -48,7 +48,7 @@
     },
     data: () => ({
       dense: false,
-      fixedHeader: false,
+      fixedHeader: true,
       height: 300,
       desserts: [
         {

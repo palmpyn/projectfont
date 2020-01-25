@@ -2,116 +2,181 @@
     <div>
         <NavbarSt />
     <v-container>
+        <v-btn icon right @click="isEditing = !isEditing">
+                     <v-icon large v-if="isEditing" >mdi-close</v-icon>
+                     <v-icon large v-else>mdi-pencil</v-icon>             
+        </v-btn>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>ชื่อ</v-subheader>
+                <p >ชื่อ</p >
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{first}}</p>
                 <v-text-field
-                  v-model="first"
-                  shape
-                  outlined
+                    v-if="this.isEditing==true"
+                    v-model="first"
+                    shape
+                    outlined
+                ></v-text-field>
+            </v-col>
+        </v-row>
+        <!-- <v-row>
+            <v-col cols="6" sm="3">
+                <p >นาสกุล</p >
+            </v-col>
+            <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{last}}</p>
+                <v-text-field
+                    v-if="this.isEditing==true"
+                    v-model="last"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>นามสกุล</v-subheader>
+                <p>เพศ</vp>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{sex}}</p>
                 <v-text-field
-                  v-model="last"
+                    v-if="this.isEditing==true"
+                    v-model="sex"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>เพศ</v-subheader>
+                <p>ศาสนา</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{religion}}</p>
                 <v-text-field
-                  v-model="sex"
+                    v-if="this.isEditing==true"
+                    v-model="religion"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>ศาสนา</v-subheader>
+                <p>รหัสนักศึกษา</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{st_id}}</p>
                 <v-text-field
-                  v-model="religion"
+                    v-if="this.isEditing==true"
+                    v-model="st_id"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>รหัสนักศึกษา</v-subheader>
+                <p>สาขา</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{branch}}</p>
                 <v-text-field
-                  v-model="idst"
+                    v-if="this.isEditing==true"
+                    v-model="branch"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>สาขา</v-subheader>
+                <p>ชั้นปี</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{year}}</p>
                 <v-text-field
-                  v-model="branch"
+                    v-if="this.isEditing==true"
+                    v-model="year"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>ชั้นปี</v-subheader>
+                <p>รหัสบัตรประชาชน</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{idcard}}</p>
                 <v-text-field
-                  v-model="year"
+                    v-if="this.isEditing==true"
+                    v-model="idcard"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>รหัสบัตรประชาชน</v-subheader>
+                <p>โรคประจำตัว</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{disease}}</p>
                 <v-text-field
-                  v-model="idcard"
+                    v-if="this.isEditing==true"
+                    v-model="disease"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>โรคประจำตัว</v-subheader>
+                <p>อาหารที่แพ้</p>
             </v-col>
             <v-col cols="6" sm="3">
                 <v-text-field
-                  v-model="idcard"
+                    <p v-if="this.isEditing==false"> {{food_allergic}}</p>
+                    v-if="this.isEditing==true"
+                    v-model="food_allergic"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="6" sm="3">
-                <v-subheader>อาหารที่แพ้</v-subheader>
+                <p>ยาที่แพ้</p>
             </v-col>
             <v-col cols="6" sm="3">
+                <p v-if="this.isEditing==false"> {{be_allergic}}</p>
                 <v-text-field
-                  v-model="idcard"
+                    v-if="this.isEditing==true"
+                    v-model="be_allergic"
+                    shape
+                    outlined
                 ></v-text-field>
             </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="6" sm="3">
-                <v-subheader>ยาที่แพ้</v-subheader>
+        </v-row> -->
+        <v-spacer></v-spacer>
+        <v-row v-if="this.isEditing==true">
+            <v-col cols="12" sm="3">
+                <v-btn
+                    color="success"
+                    @click="save"
+                >
+                บันทึก
+                </v-btn>
             </v-col>
-            <v-col cols="6" sm="3">
-                <v-text-field
-                  v-model="idcard"
-                ></v-text-field>
+            <v-col cols="12" sm="3">
+                <v-btn
+                    color="error"
+                    @click="save"
+                >
+                ยกเลิก
+                </v-btn>
             </v-col>
         </v-row>
     </v-container>
@@ -120,12 +185,30 @@
 <script>
 import NavbarSt from '@/components/NavbarSt'
   export default {
+    methods: {
+        save () {
+        this.isEditing = !this.isEditing
+        this.hasSaved = true
+      },
+    },
     components : {
         NavbarSt
     },
     data: () => ({
+      isEditing: null,
+      hasSaved: false,
       first: 'John',
-      //last: 'Doe',
+      last: ' ',
+      sex: '',
+      religion: '',
+      st_id:'',
+      branch: '',
+      year:'',
+      idcard:'',
+      disease:'',
+      food_allergic:'',
+      be_allergic:'',
+
     }),
   }
 </script>

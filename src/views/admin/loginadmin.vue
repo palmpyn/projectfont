@@ -26,11 +26,16 @@
         </v-col>
         </v-row>
         <v-spacer></v-spacer>
-        <v-btn color="green darken-1">เข้าสู่ระบบ</v-btn>
+        <v-btn color="green darken-1" @click="LoginRouter">เข้าสู่ระบบ</v-btn>
     </div>
 </template>
 <script>
 export default {
+    methods:{
+        LoginRouter(){
+            this.$router.push({name:"HomeAdmin"})
+        }
+    },
     data: ()=>({
         show1: false
     })

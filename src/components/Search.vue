@@ -39,5 +39,6 @@
       menu: false,
       modal: false,
     }),
+    
   }
 </script>

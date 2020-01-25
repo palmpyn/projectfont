@@ -12,7 +12,7 @@
             <th class="text-left">วันที่</th>
             <th class="text-left">จำนวนคน</th>
             <th class="text-left">รายละเอียดกิจกรรม</th>
-            <th class="text-left">บันทึกกิจกรรม</th>
+            <!-- <th class="text-left">บันทึกกิจกรรม</th> -->
           </tr>
         </thead>
         <tbody>
@@ -21,15 +21,17 @@
             <td class="text-left">{{ item.time }}</td>
             <td class="text-left">{{ item.people }}</td>
             <td class="text-left">
-                <v-btn>
-                    รายละเอียดกิจกรรม
+                <v-btn icon >
+                    <v-icon @click="ViewRouter">mdi-file-document-box-outline</v-icon>
                 </v-btn>
             </td>
-            <td>
-                <v-btn icon class="text-left">
-                     <v-icon large>mdi-star-outline</v-icon>
+            <!-- <td>
+                <v-btn icon class="text-left" @click="isEditing = !isEditing">
+                     <v-icon large v-if="isEditing">mdi-star</v-icon>
+                     <v-icon large v-else>mdi-star-outline</v-icon>
+                     
                 </v-btn>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </template>
@@ -38,20 +40,28 @@
 </template>
 <script>
   export default {
+  methods: {
+      save() {
+      },
+      ViewRouter(view){
+            this.$router.push({name: "viewst"})
+            console.log(view)
+        },
+    },
     data: () => ({
       dense: false,
-      fixedHeader: false,
-      height: 300,
+      fixedHeader: true,
+      isEditing: null,
       desserts: [
        {
           name: 'โครงการปฐมนิเทศภายในคณะวิทยาศาสตร์และเทคโนโลยี',
           time: '12 กุมภาพันธ์ 2563',
-          people: 24/120
+          people: 24/120,
         },
         {
           name: 'วันรพีรำลึก ประจำปี 2563',
           time: '12 กุมภาพันธ์ 2563',
-          people: 24/120
+          people: 24/120,
         },
       ],
     }),

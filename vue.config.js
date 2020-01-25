@@ -3,3 +3,8 @@ module.exports = {
     "vuetify"
   ]
 }
+{
+  plugins: [
+    '~plugins/maps.js'
+  ]
+}

@@ -2,21 +2,7 @@
 <v-form>
     <div>
         <NavbarAdmin />
-        <Search />
         <v-container >
-            <v-row>
-                <v-col cols="6" sm="3">
-                    ประเภทกิจกรรม
-                </v-col>
-                <v-col cols="6" sm="3">
-                    <v-select
-                        :items="type"
-                        label="-"
-                        dense
-                        outlined
-                    ></v-select>
-                </v-col>
-            </v-row>
             <v-row>
                 <v-col cols="6" sm="3">
                     ชื่อกิจกรรม
@@ -31,6 +17,19 @@
             <v-row>
                 <v-col cols="6" sm="3">
                     ด้านกิจกรรม
+                </v-col>
+                <v-col cols="6" sm="3">
+                    <v-select
+                        :items="type"
+                        label="-"
+                        dense
+                        outlined
+                    ></v-select>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="6" sm="3">
+                    ประเภทกิจกรรม
                 </v-col>
                 <v-col cols="6" sm="3">
                     <v-select
@@ -68,6 +67,46 @@
             <v-row>
                 <v-col cols="6" sm="3">
                     ชั่วโมงที่ได้รับ
+                </v-col>
+                <v-col cols="6" sm="3">
+                    <v-text-field
+                        outlined
+                        shaped
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="6" sm="3">
+                    วันที่
+                </v-col>
+                <v-col cols="6" sm="3">
+                    <v-menu
+        ref="menu"
+        v-model="menu"
+        :close-on-content-click="false"
+        :return-value.sync="date"
+        transition="scale-transition"
+      >
+        <template v-slot:activator="{ on }">
+          <v-text-field
+            v-model="date"
+            label="Picker in menu"
+            :append-icon="'mdi-calendar'"
+            readonly
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker v-model="date" no-title scrollable>
+          <v-spacer></v-spacer>
+          <v-btn text color="primary" @click="menu = false">Cancel</v-btn>
+          <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+        </v-date-picker>
+      </v-menu>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="6" sm="3">
+                    เวลา
                 </v-col>
                 <v-col cols="6" sm="3">
                     <v-text-field
@@ -118,7 +157,8 @@
                     <v-checkbox class="mx-2" label="ปี 4"></v-checkbox>
                 </v-col>
             </v-row>
-            <v-row>
+            <!--upload file -->
+            <!-- <v-row>
                 <v-col cols="6" sm="3">
                     ไฟล์กำหนดการ
                 </v-col>
@@ -154,7 +194,7 @@
     </template>
   </v-file-input>
                 </v-col>
-            </v-row>
+            </v-row> -->
             <v-row>
                 <v-col cols="6" sm="3">
                     <v-btn 
@@ -175,13 +215,14 @@
 </template>
 <script>
 import NavbarAdmin from '@/components/NavbarAdmin'
-import Search from '@/components/Search'
 export default {
     components : {
         NavbarAdmin,
-        Search,
     },
     data: () => ({
+        date: new Date().toISOString().substr(0, 10),
+        menu: false,
+        modal: false,
         type: [
             'กิจกรรมวิชาการและวิชาชีพ',
             'กิจกรรมกีฬาและนันทนาการ',

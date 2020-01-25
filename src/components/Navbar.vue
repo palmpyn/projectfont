@@ -6,7 +6,7 @@
       dark
     >
       <v-btn
-          icon v-on="on"
+          icon
           @click.stop="drawer = !drawer"
         >
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -15,35 +15,11 @@
       <!-- <v-toolbar-title>Page title</v-toolbar-title> -->
 
       <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon @click="LogoutRouter">mdi-logout-variant</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-bell-alert-outline</v-icon>
-      </v-btn>
-      </v-app-bar>
-      <v-row justify="space-around">
-      <v-col cols="12">
-
-<v-navigation-drawer
-      v-model="drawer"
-      app class = "indigo"
-    >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-
-          
-          <!-- <v-dialog v-model="dialog" persistent max-width="290">
+      <v-dialog v-model="dialog" persistent max-width="290">
       <template v-slot:activator="{ on }">
-        <v-btn  text v-on="on">Open Dialog</v-btn>
+        <v-btn icon v-on="on">
+        <v-icon >mdi-logout-variant</v-icon>
+      </v-btn>
         
       </template>
       <v-card>
@@ -71,23 +47,33 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1"   @click="dialog = false">เข้าสู่ระบบ</v-btn>
+          <v-btn color="green darken-1"   @click="dialog = LoginRouter " >เข้าสู่ระบบ</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog> -->
-        
-          <v-list-item>
-            <v-list-item-title @click="ProfileRouter"> โปร์ไฟล์ </v-list-item-title>
-          </v-list-item>
+    </v-dialog>
+      
+      </v-app-bar>
+      
 
+<v-navigation-drawer
+      v-model="drawer"
+      app class = "indigo"
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+        >
           <v-list-item>
-            <v-list-item-title @click="HomeRouter">กิจกรรมทั้งหมด</v-list-item-title>
+            <v-list-item-title @click="ActivityRouter">กิจกรรมทั้งหมด</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>กิจกรรมมหาวิทยาลัย</v-list-item-title>
           </v-list-item>
-
+          
           <v-menu bottom :offset-x="offset">
       <template v-slot:activator="{ on }">
         <v-btn
@@ -111,24 +97,9 @@
       </v-list>
     </v-menu>
 
-          <v-list-item>
-            <v-list-item-title @click="QRRouter"> คิวอาร์โค้ด </v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title @click="ChangepasswordRouter"> เปลี่ยนรหัสผ่าน </v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title @click="TranscriptRouter"> ทรานสคริปกิจกรรม </v-list-item-title>
-          </v-list-item>
-
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-
-</v-col>
-</v-row>
     
   </div>
 </template>
@@ -137,21 +108,20 @@
     data: () => ({
       drawer: false,
       group: null,
-      dialog: false,
-      show1: false,
-    type: [
+      notifications: [
+        'Mike, John responded to your email',
+        'You have 5 new tasks',
+        'You\'re now a friend with Andrew',
+        'Another Notification',
+        'Another One'
+      ],
+      type: [
         { title: 'กิจกรรมวิชาการและวิชาชีพ' },
         { title: 'กิจกรรมกีฬาและนันทนาการ' },
         { title: 'กิจรรมบำเพ็ญประโยชน์หรือรักษาสิ่งแวดล้อม' },
         { title: 'กิจกรรมเสริมสร้างคุณธรรม จริยธรรม' },
         { title: 'กิจกรรมอนุรักษ์ศิลปวัฒนธรรม' }
       ],
-    history:[
-        { title: 'กิจกรรมที่บันทึก' },
-        { title: 'กิจกรรมที่ลงทะเบียน' },
-        { title: 'กิจรรมที่เคยเข้าร่วม' },
-      ],
-      offset: true,  
     }),
 
     watch: {
@@ -160,24 +130,12 @@
       },
     },
     methods: {
-        ProfileRouter(){
-            this.$router.push({name: "Profile"})
+        ActivityRouter () {
+            this.$router.push({name: 'Home'})
         },
-        HomeRouter () {
-            this.$router.push({name: "homest"})
-        },
-        ChangepasswordRouter(){
-          this.$router.push({name: 'Changepassword'})
-        },
-        LogoutRouter(){
-          this.$router.push({name: 'home'})
-        },
-        QRRouter(){
-
-        },
-        TranscriptRouter(){
-
-        },
+        LoginRouter(){
+          this.$router.push({name:"homest"})
+        }
     }
   }
 </script>

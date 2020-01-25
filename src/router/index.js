@@ -5,10 +5,23 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  // home guest
   {
     path: '/home',
     name: 'home',
     component: Home
+  },
+  // home นักศึกษา
+  {
+    path: '/home/student',
+    name: 'homest',
+    component: Home
+  },
+  // home admin
+  {
+    path: '/Home/admin',
+    name: 'HomeAdmin',
+    component: ()=>import('../views/admin/HomeAdmin')
   },
   {
     path: '/about',
@@ -18,45 +31,71 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+  // เพิ่มกิจกรรม
   {
     path: '/',
     name: 'InsertActivity',
     component: () => import('../views/admin/InsertActivity')
   },
+  // เปลี่ยนรหัสผ่านของนักศึกษา
   {
-    path: '/Changepassword',
+    path: '/Changepassword/Student',
     name: 'Changepassword',
     component: () => import('../views/student/Changepassword')
   },
+  // เปลี่ยนรหัสผ่านของแอดมิน
+  {
+    path: '/Changepassword/admin',
+    name: 'Changepasswordadmin',
+    component: () => import('../views/admin/Changepasswordadmin')
+  },
+  // 
   {
     path: '/Historyregister',
     name: 'HistoryR',
     component: ()=>import('../views/student/HistoryR')
   },
-  {
-    path: '/Homeadmin',
-    name: 'HomeAdmin',
-    component: ()=>import('../views/admin/HomeAdmin')
-  },
+  // ข้อมูลนักศึกษา
   {
     path: '/profile',
     name: 'Profile',
     component: ()=>import('../views/student/Profile')
   },
+  // เข้าสู่ระบบแอดมิน
   {
     path: '/login/admin',
     name: 'loginadmin',
     component: ()=>import('../views/admin/loginadmin')
   },
+  // สรุปข้อมูลนักศึกษาที่ลงทะเบียน
   {
     path: '/report',
     name: 'Report',
     component: ()=>import('../views/admin/Report')
   },
+  // รายละเอียดกิจกรรมของแอดมิน
   {
     path: '/viewactivity/admin',
     name: 'viewadmin',
     component: ()=>import('../views/admin/ViewAdmin')
+  },
+  // รายละเอียดกิจกรรมของนักศึกษา
+  {
+    path: '/viewactivity/student',
+    name: 'viewst',
+    component: ()=>import('../views/student/ViewSt')
+  },
+  // QRCode
+  {
+    path: '/QRCode',
+    name: 'qrcode',
+    component: ()=>import('../views/student/QRCode')
+  },
+  // ทรานสคริปกิจกรรม
+  {
+    path: '/transript',
+    name: 'transript',
+    component: ()=>import('../views/student/Transcript')
   },
 ]
 

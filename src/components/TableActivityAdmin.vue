@@ -12,7 +12,6 @@
             <th class="text-left">วันที่</th>
             <th class="text-left">จำนวนคน</th>
             <th class="text-left">รายละเอียดกิจกรรม</th>
-            <th class="text-left">ลบกิจกรรม</th>
           </tr>
         </thead>
         <tbody>
@@ -21,13 +20,8 @@
             <td class="text-left">{{ item.time }}</td>
             <td class="text-left">{{ item.people }}</td>
             <td class="text-left">
-                <v-btn>
-                    รายละเอียดกิจกรรม
-                </v-btn>
-            </td>
-            <td>
-                <v-btn>
-                    ลบกิจกรรม
+                <v-btn icon>
+                    <v-icon @click="ViewRouter">mdi-file-document-box-outline</v-icon>
                 </v-btn>
             </td>
           </tr>
@@ -54,5 +48,13 @@
         },
       ],
     }),
+    methods: {
+      save() {
+      },
+      ViewRouter(view){
+            this.$router.push({name: "viewadmin"})
+            console.log(view)
+        },
+    },
   }
 </script>
