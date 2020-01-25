@@ -29,6 +29,7 @@
       <v-list
         nav
         dense
+        
       >
         <v-list-item-group
           v-model="group"
@@ -58,6 +59,7 @@
           v-for="(item, index) in type"
           :key="index"
           @click="a"
+
         >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
@@ -93,8 +95,8 @@
             <v-list-item-title class="white--text"> Scan QRCode </v-list-item-title>
           </v-list-item> -->
 
-          <v-list-item>
-            <v-list-item-title class="white--text" @click="ChangeRouter"> เปลี่ยนรหัสผ่าน </v-list-item-title>
+          <v-list-item >
+            <v-list-item-title @click="ChangeRouter"> เปลี่ยนรหัสผ่าน </v-list-item-title>
           </v-list-item>
 
           <v-list-item>
